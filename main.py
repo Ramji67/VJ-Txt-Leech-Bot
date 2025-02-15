@@ -219,7 +219,7 @@ async def upload(bot: Client, m: Message):
                     f' **📚 Course :** {raw_text0}\\n\\n'
                     f'**🌟 Extracted By {MR}**')
                   
-            else:
+          
             progress = (count / len(links)) * 100
             Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n"
                     f"**┠ 📊 Total Links = {len(links)}**\n"
