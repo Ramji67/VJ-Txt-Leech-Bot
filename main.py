@@ -207,7 +207,7 @@ async def upload(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
         try:
-    cc = (f'**——— ✦  {str(count).zfill(3)}   ——— ✦ **\\n\\n'
+    cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
           f'**🎞️ Title :** {copied_name1}\\n'
           f'     **├── Extention : @Course_diploma_bot**\\n'
           f'    **├── Resolution : {raw_text2}**\\n\\n'
