@@ -67,11 +67,20 @@ async def upload(bot: Client, m: Message):
            return
     
    
-    await editable.edit(f"**Total Number of 🔗 Links found are** **{len(links)}**\n\n**├─ 📽️ Video Links :**\n\n**├─ 📑 PDF Links :**\n\n**├─ 🖼️Image Links :**\n\n**├─ 🔗 Other Links:**\n\n**Send From where You want to 📩 Download
-Initial is  :** **1**\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
-    input0: Message = await bot.listen(editable.chat.id)
-    raw_text = input0.text
-    await input0.delete(True)
+   # Ensure this part of the code is inside an asynchronous function
+await editable.edit(f"**Total Number of 🔗 Links found are** **{len(links)}**\n\n"
+                    f"**├─ 📽️ Video Links :**\n\n"
+                    f"**├─ 📑 PDF Links :**\n\n"
+                    f"**├─ 🖼️ Image Links :**\n\n"
+                    f"**├─ 🔗 Other Links:**\n\n"
+                    f"**Send From where You want to 📩 Download\n"
+                    f"Initial is  :** **1**\n\n"
+                    f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
+
+input0: Message = await bot.listen(editable.chat.id)
+raw_text = input0.text
+await input0.delete(True)
+
 
     await editable.edit("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 Batch Name 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
     input1: Message = await bot.listen(editable.chat.id)
