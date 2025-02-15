@@ -193,10 +193,15 @@ async def upload(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    Show = f"**⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »**\n\n**📝Name »** `{name}\n❄Quality » {raw_text2}`\n\n**🔗URL »** `{url}`"
-                    prog = await m.reply_text(Show)
-                    res_file = await helper.download_video(url, cmd, name)
-                    filename = res_file
+                    Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 =  🚀... »**\\n\\n"
+            f"**┠ 📊 Total Links = {len(links)}**\\n"
+            f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\\n"
+            f"**┠ 🔥 Remaining Links = {len(links) - count}**\\n"
+            f"**┠ 📈 Progress = {progress:.2f}%**\\n\\n"
+            f"**├──🎞️ Title** `{name}`\\n"
+            f"**├── Resolution** {raw_text2}\\n\\n"
+            f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\\n\\n"
+            f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
                     await prog.delete(True)
                     await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
                     count += 1
