@@ -205,41 +205,40 @@ async def upload(bot: Client, m: Message):
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
-            try:
-                   cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
-                   f'**🎞️ Title :** {copied_name1}\\n'
-                   f'     **├── Extention : @Course_diploma_bot**\\n'
-                   f'    **├── Resolution : {raw_text2}**\\n\\n'
-                   f'**📚 Course :** {raw_text0}\\n\\n'
-                   f'**🌟 Extracted By :  {MR}**')
+           try:
+    cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
+          f'**🎞️ Title :** {copied_name1}\\n'
+          f'     **├── Extention : @Course_diploma_bot**\\n'
+          f'    **├── Resolution : {raw_text2}**\\n\\n'
+          f'**📚 Course :** {raw_text0}\\n\\n'
+          f'**🌟 Extracted By :  {MR}**')
 
-                   cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
-                    f'**📁 Title** {copied_name1}\\n'
-                    f'       **├── Extention : @Course_diploma_bot**\\n\\n'
-                    f' **📚 Course :** {raw_text0}\\n\\n'
-                    f'**🌟 Extracted By {MR}**')
-                  
-          
-          
-            Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 =  🚀... »**\n\n"
-                    f"**┠ 📊 Total Links = {len(links)}**\n"
-                    f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\n"
-                    f"**┠ 🔥 Remaining Links = {len(links) - count}**\n"
-                    f"**┠ 📈 Progress = {progress:.2f}%**\n\n"
-                    f"**├──🎞️ Title** `{name}`\n"
-                    f"**├── Resolution** {raw_text2}\n\n"
-                    f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\n\n"
-                    f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
-            prog = await m.reply_text(Show)
-            res_file = await helper.download_video(url, cmd, name)
-            filename = res_file
-            await prog.delete(True)
-            await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
-            count += 1
-            time.sleep(1)
+    cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
+           f'**📁 Title** {copied_name1}\\n'
+           f'       **├── Extention : @Course_diploma_bot**\\n\\n'
+           f' **📚 Course :** {raw_text0}\\n\\n'
+           f'**🌟 Extracted By {MR}**')
+
+    Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 =  🚀... »**\\n\\n"
+            f"**┠ 📊 Total Links = {len(links)}**\\n"
+            f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\\n"
+            f"**┠ 🔥 Remaining Links = {len(links) - count}**\\n"
+            f"**┠ 📈 Progress = {progress:.2f}%**\\n\\n"
+            f"**├──🎞️ Title** `{name}`\\n"
+            f"**├── Resolution** {raw_text2}\\n\\n"
+            f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\\n\\n"
+            f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
+
+    prog = await m.reply_text(Show)
+    res_file = await helper.download_video(url, cmd, name)
+    filename = res_file
+    await prog.delete(True)
+    await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
+    count += 1
+    time.sleep(1)
 
 except Exception as e:
-    await m.reply_text(f"**downloading Interrupted **\n{str(e)}\n**Name** » {name}\n**Link** » `{url}`")
+    await m.reply_text(f"**downloading Interrupted **\\n{str(e)}\\n**Name** » {name}\\n**Link** » `{url}`")
     continue
 
 await m.reply_text("**𝔻ᴏɴᴇ 𝔹ᴏ𝕤𝕤😎**")
