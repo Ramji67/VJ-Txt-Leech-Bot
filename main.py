@@ -1,5 +1,3 @@
-
-
 import os
 import re
 import sys
@@ -23,94 +21,78 @@ from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
 bot = Client(
     "bot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN)
 
-
 @bot.on_message(filters.command(["start"]))
 async def start(bot: Client, m: Message):
     await m.reply_text(f"<b>Hello {m.from_user.mention} 👋\n\n I Am A Bot For Download Links From Your **.TXT** File And Then Upload That File On Telegram So Basically If You Want To Use Me First Send Me /run Command And Then Follow Few Steps..\n Extracted By ➤ 🅹🅰🅸 🆂🅷🆁🅸 🆁🅰🅼 \n\nUse /stop to stop any ongoing task.</b>")
 
-
 @bot.on_message(filters.command("stop"))
-async def restart_handler(_, m):
-    await m.reply_text("**Stopped Boss **🚦", True)
+async def stop_handler(bot: Client, m: Message):
+    await m.reply_text("**Stopped Boss **🚦")
     os.execl(sys.executable, sys.executable, *sys.argv)
-
-
 
 @bot.on_message(filters.command(["run"]))
 async def upload(bot: Client, m: Message):
-    editable = await m.reply_text("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
+    editable = await m.reply_text("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
 
-    path = f"./downloads/{m.chat.id}"
+    try:
+        with open(x, "r") as f:
+            content = f.read().split("\n")
+        links = [i.split("://", 1) for i in content]
+        os.remove(x)
+    except:
+        await m.reply_text("**Invalid file input.**")
+        os.remove(x)
+        return
+
+    await editable.edit(f"**Total Number of 🔗 Links found are** **{len(links)}**\n\n"
+                        f"**├─ 📽️ Video Links :**\n\n"
+                        f"**├─ 📑 PDF Links :**\n\n"
+                        f"**├─ 🖼️ Image Links :**\n\n"
+                        f"**├─ 🔗 Other Links:**\n\n"
+                        f"**Send From where You want to 📩 Download\n"
+                        f"Initial is  :** **1**\n\n"
+                        f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
+
+    input0: Message = await bot.listen(editable.chat.id)
+    raw_text = input0.text
+    await input0.delete(True)
+
+    await editable.edit("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 Batch Name 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
+    input1: Message = await bot.listen(editable.chat.id)
+    raw_text0 = input1.text
+    await input1.delete(True)
+
+    await editable.edit("**𝔼ɴᴛᴇʀ ʀᴇ𝕤ᴏʟᴜᴛɪᴏɴ📸**\n144,240,360,480,720,1080 please choose quality")
+    input2: Message = await bot.listen(editable.chat.id)
+    raw_text2 = input2.text
+    await input2.delete(True)
 
     try:
-       with open(x, "r") as f:
-           content = f.read()
-       content = content.split("\n")
-       links = []
-       for i in content:
-           links.append(i.split("://", 1))
-       os.remove(x)
-            # print(len(links)
-    except:
-           await m.reply_text("**Invalid file input.**")
-           os.remove(x)
-           return
-    
-   
-   # Ensure this part of the code is inside an asynchronous function
-await editable.edit(f"**Total Number of 🔗 Links found are** **{len(links)}**\n\n"
-                    f"**├─ 📽️ Video Links :**\n\n"
-                    f"**├─ 📑 PDF Links :**\n\n"
-                    f"**├─ 🖼️ Image Links :**\n\n"
-                    f"**├─ 🔗 Other Links:**\n\n"
-                    f"**Send From where You want to 📩 Download\n"
-                    f"Initial is  :** **1**\n\n"
-                    f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
-
-input0: Message = await bot.listen(editable.chat.id)
-raw_text = input0.text
-await input0.delete(True)
-
-
-  await editable.edit("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 Batch Name 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
-input1: Message = await bot.listen(editable.chat.id)
-raw_text0 = input1.text
-await input1.delete(True)
-
-
-
-await editable.edit("**𝔼ɴᴛᴇʀ ʀᴇ𝕤ᴏʟᴜᴛɪᴏɴ📸**\n144,240,360,480,720,1080 please choose quality")
-input2: Message = await bot.listen(editable.chat.id)
-raw_text2 = input2.text
-await input2.delete(True)
-
-try:
-    if raw_text2 == "144":
-        res = "256x144"
-    elif raw_text2 == "240":
-        res = "426x240"
-    elif raw_text2 == "360":
-        res = "640x360"
-    elif raw_text2 == "480":
-        res = "854x480"
-    elif raw_text2 == "720":
-        res = "1280x720"
-    elif raw_text2 == "1080":
-        res = "1920x1080" 
-    else: 
+        if raw_text2 == "144":
+            res = "256x144"
+        elif raw_text2 == "240":
+            res = "426x240"
+        elif raw_text2 == "360":
+            res = "640x360"
+        elif raw_text2 == "480":
+            res = "854x480"
+        elif raw_text2 == "720":
+            res = "1280x720"
+        elif raw_text2 == "1080":
+            res = "1920x1080" 
+        else: 
+            res = "UN"
+    except Exception:
         res = "UN"
-except Exception:
-    res = "UN"
 
     await editable.edit("🌟 Extracted By : ")
     input3: Message = await bot.listen(editable.chat.id)
@@ -121,9 +103,9 @@ except Exception:
         MR = highlighter 
     else:
         MR = raw_text3
-   
-    await editable.edit("Now send the Thumb url/nEg »no \n Or if don't want thumbnail send = no")
-    input6 = message = await bot.listen(editable.chat.id)
+
+    await editable.edit("Now send the Thumb url\nEg » no \nOr if don't want thumbnail send = no")
+    input6 = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
     await editable.delete()
@@ -133,7 +115,7 @@ except Exception:
         getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
     else:
-        thumb == "no"
+        thumb = "no"
 
     if len(links) == 1:
         count = 1
@@ -142,13 +124,19 @@ except Exception:
 
     try:
         for i in range(count - 1, len(links)):
-
-            V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","") # .replace("mpd","m3u8")
+            V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
             url = "https://" + V
 
             if "visionias" in url:
                 async with ClientSession() as session:
-                    async with session.get(url, headers={'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive', 'Pragma': 'no-cache', 'Referer': 'http://www.visionias.in/', 'Sec-Fetch-Dest': 'iframe', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'cross-site', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Linux; Android 12; RMX2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'sec-ch-ua-platform': '"Android"',}) as resp:
+                    async with session.get(url, headers={
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                        'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive',
+                        'Pragma': 'no-cache', 'Referer': 'http://www.visionias.in/', 'Sec-Fetch-Dest': 'iframe',
+                        'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'cross-site', 'Upgrade-Insecure-Requests': '1',
+                        'User-Agent': 'Mozilla/5.0 (Linux; Android 12; RMX2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36',
+                        'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?1',
+                        'sec-ch-ua-platform': '"Android"',}) as resp:
                         text = await resp.text()
                         url = re.search(r"(https://.*?playlist.m3u8.*?)\"", text).group(1)
 
@@ -156,7 +144,7 @@ except Exception:
                 headers = {'Host': 'api.classplusapp.com', 'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9', 'user-agent': 'Mobile-Android', 'app-version': '1.4.37.1', 'api-version': '18', 'device-id': '5d0d17ac8b3c9f51', 'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30', 'accept-encoding': 'gzip'}
                 params = (('url', f'{url}'),)
                 response = requests.get('https://api.classplusapp.com/cams/uploader/video/jw-signed-url', headers=headers, params=params)
-                url = response.json()['url']  
+                url = response.json()['url']
 
             elif 'videos.classplusapp' in url:
                 url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9'}).json()['url']
