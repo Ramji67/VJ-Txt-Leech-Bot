@@ -205,31 +205,25 @@ async def upload(bot: Client, m: Message):
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
-try:
+               try:
+                   cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
+                   f'**🎞️ Title :** {copied_name1}\\n'
+                   f'     **├── Extention : @Course_diploma_bot**\\n'
+                   f'    **├── Resolution : {raw_text2}**\\n\\n'
+                   f'**📚 Course :** {raw_text0}\\n\\n'
+                   f'**🌟 Extracted By :  {MR}**')
 
+                   cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
+                    f'**📁 Title** {copied_name1}\\n'
+                    f'       **├── Extention : @Course_diploma_bot**\\n\\n'
+                    f' **📚 Course :** {raw_text0}\\n\\n'
+                    f'**🌟 Extracted By {MR}**')
 
-    
-    cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
-          f'**🎞️ Title :** {copied_name1}\\n'
-          f'     **├── Extention : @Course_diploma_bot**\\n'
-          f'    **├── Resolution : {raw_text2}**\\n\\n'
-          f'**📚 Course :** {raw_text0}\\n\\n'
-          f'**🌟 Extracted By :  {MR}**')
-
-    cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
-           f'**📁 Title** {copied_name1}\\n'
-           f'       **├── Extention : @Course_diploma_bot**\\n\\n'
-           f' **📚 Course :** {raw_text0}\\n\\n'
-           f'**🌟 Extracted By {MR}**')
-
-    if "*" in url:
-        a, k = url.split("*", 1)
-        url = a
-        key = k
-
-try:
-    for url in links:
-        try:
+                      if "*" in url:
+                         a, k = url.split("*", 1)
+                          url = a
+                          key = k
+                          try:
             if ".pdf" in url:
                 Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
                 prog = await m.reply_text(Show)
