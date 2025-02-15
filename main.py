@@ -45,7 +45,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["run"]))
 async def upload(bot: Client, m: Message):
-    editable = await m.reply_text('𝕤ᴇɴᴅ ᴛxᴛ ғɪʟᴇ 🅹🅰🅸 🆂🅷🆁🅸 🆁🅰🅼 ⚡️')
+    editable = await m.reply_text("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -67,12 +67,13 @@ async def upload(bot: Client, m: Message):
            return
     
    
-    await editable.edit(f"**𝕋ᴏᴛᴀʟ ʟɪɴᴋ𝕤 ғᴏᴜɴᴅ ᴀʀᴇ🔗🔗** **{len(links)}**\n\n**𝕊ᴇɴᴅ 𝔽ʀᴏᴍ ᴡʜᴇʀᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ɪɴɪᴛɪᴀʟ ɪ𝕤** **1**")
+    await editable.edit(f"**Total Number of 🔗 Links found are** **{len(links)}**\n\n**├─ 📽️ Video Links :**\n\n**├─ 📑 PDF Links :**\n\n**├─ 🖼️Image Links :**\n\n**├─ 🔗 Other Links:**\n\n**Send From where You want to 📩 Download
+Initial is  :** **1**\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
 
-    await editable.edit("**Now Please Send Me Your Batch Name**")
+    await editable.edit("**➠ 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 Batch Name 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲 **\n\n**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
     await input1.delete(True)
@@ -102,7 +103,7 @@ async def upload(bot: Client, m: Message):
     
     
 
-    await editable.edit("Extracted By ➤ ")
+    await editable.edit("🌟 Extracted By : ")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
@@ -112,7 +113,7 @@ async def upload(bot: Client, m: Message):
     else:
         MR = raw_text3
    
-    await editable.edit("Now send the Thumb url/nEg » https://graph.org/file/ce1723991756e48c35aa1.jpg \n Or if don't want thumbnail send = no")
+    await editable.edit("Now send the Thumb url/nEg »no \n Or if don't want thumbnail send = no")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -196,7 +197,7 @@ async def upload(bot: Client, m: Message):
              id =  url.split("/")[-2]
              url = f"https://stream.pwjarvis.app/{id}/hls/{raw_text2}/main.m3u8"
 
-            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
+           copied_name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{str(count).zfill(3)}) {name1[:60]}'
 
             if "youtu" in url:
@@ -215,8 +216,17 @@ async def upload(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[▶️] Vid_ID :** {str(count).zfill(3)}\n\n**Video Title :** {name1}\n\n**Batch Name :** {raw_text0}\n\n**Extracted By ➤ {MR}**'
-                cc1 = f'**[📑] Pdf_ID :** {str(count).zfill(3)}\n\n**File Title :** {name1}\n\n**Batch Name :** {raw_text0}\n\n**Extracted By ➤ {MR}**'                
+               cc = f'**——— ✦ ** {str(count).zfill(3)}**——— ✦ **\n\n' \
+     f'**🎞️ Title :** {copied_name1}\n' \
+     f'     **├── Extention : @Course_diploma_bot**\n' \
+     f'    **├── Resolution : {raw_text2}**\n\n' \
+     f'**📚 Course :** {raw_text0}\n\n' \
+     f'**🌟 Extracted By :  {MR}**'
+                cc1 = f'**——— ✦** {str(count).zfill(3)}**——— ✦ **\n\n' \
+      f'**📁 Title** {copied_name1}\n' \
+      f'       **├── Extention : @Course_diploma_bot**\n\n' \
+      f' **📚 Course :** {raw_text0}\n\n' \
+      f'**🌟 Extracted By {MR}**'               
                 if "*" in url:
                      a, k = url.split("*", 1)
                      url = a
@@ -269,7 +279,16 @@ async def upload(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    Show = f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 =🚀... »**\n\n**├──🎞️ Title** `{name}\├── Resolution {raw_text2}`\n\n**├── Url : ** `Time Gya Url Dekhne ka 😅`\n\n**├── Bot Made By : **' 『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』'"
+                    progress = (count / len(links)) * 100
+                    f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress} 🚀... »**\n\n" \
+       f"**┠ 📊 Total Links = {len(links)}**\n" \
+       f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\n" \
+       f"**┠ 🔥 Remaining Links = {len(links) - count}**\n" \
+       f"**┠ 📈 Progress = {progress:.2f}%**\n\n" \
+       f"**├──🎞️ Title** `{name}`\n" \
+       f"**├── Resolution** {raw_text2}\n\n" \
+       f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\n\n" \
+       f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』"
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
