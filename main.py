@@ -219,31 +219,7 @@ async def upload(bot: Client, m: Message):
                     f' **📚 Course :** {raw_text0}\\n\\n'
                     f'**🌟 Extracted By {MR}**')
                   
-                
-                if "drive" in url or ".ws" in url or "cwmediabkt99.crwilladmin.com" in url:
-                    try:
-                        ka = await helper.download(url, name)
-                        copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
-                        count+=1
-                        os.remove(ka)
-                        time.sleep(2)
-                    except FloodWait as e:
-                        await m.reply_text(str(e))
-                        time.sleep(e.x)
-                        continue
-                if ".pdf" in url:
-                    try:
-                        cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
-                        download_cmd = f"{cmd} -R 25 --fragment-retries 25"
-                        os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
-                        count += 1
-                        os.remove(f'{name}.pdf')
-                    except FloodWait as e:
-                        await m.reply_text(str(e))
-                        time.sleep(e.x)
-                        continue
-                else:
+            else:
             progress = (count / len(links)) * 100
             Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n"
                     f"**┠ 📊 Total Links = {len(links)}**\n"
