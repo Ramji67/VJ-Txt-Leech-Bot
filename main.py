@@ -246,6 +246,9 @@ async def upload(bot: Client, m: Message):
             f"**├── Resolution** {raw_text2}\\n\\n"
             f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\\n\\n"
             f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
+                   prog = await m.reply_text(Show)
+                    res_file = await helper.download_video(url, cmd, name)
+                    filename = res_file
                     await prog.delete(True)
                     await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
                     count += 1
