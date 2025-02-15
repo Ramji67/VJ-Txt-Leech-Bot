@@ -206,25 +206,28 @@ async def upload(bot: Client, m: Message):
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
-            try:  
-                
-            cc = (f'**——— ✦  {str(count).zfill(3)}   ——— ✦ **\\n\\n'
-      f'**🎞️ Title :** {copied_name1}\\n'
-      f'     **├── Extention : @Course_diploma_bot**\\n'
-      f'    **├── Resolution : {raw_text2}**\\n\\n'
-      f'**📚 Course :** {raw_text0}\\n\\n'
-      f'**🌟 Extracted By :  {MR}**')
+        try:
+    cc = (f'**——— ✦  {str(count).zfill(3)}   ——— ✦ **\\n\\n'
+          f'**🎞️ Title :** {copied_name1}\\n'
+          f'     **├── Extention : @Course_diploma_bot**\\n'
+          f'    **├── Resolution : {raw_text2}**\\n\\n'
+          f'**📚 Course :** {raw_text0}\\n\\n'
+          f'**🌟 Extracted By :  {MR}**')
 
-              cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
-       f'**📁 Title** {copied_name1}\\n'
-       f'       **├── Extention : @Course_diploma_bot**\\n\\n'
-       f' **📚 Course :** {raw_text0}\\n\\n'
-       f'**🌟 Extracted By {MR}**')
-           
-                if "*" in url:
-                     a, k = url.split("*", 1)
-                     url = a
-                     key = k
+    cc1 = (f'**——— ✦**  {str(count).zfill(3)}**——— ✦ **\\n\\n'
+           f'**📁 Title** {copied_name1}\\n'
+           f'       **├── Extention : @Course_diploma_bot**\\n\\n'
+           f' **📚 Course :** {raw_text0}\\n\\n'
+           f'**🌟 Extracted By {MR}**')
+
+    if "*" in url:
+        a, k = url.split("*", 1)
+        url = a
+        key = k
+
+except Exception as e:
+    print(f"An error occurred: {e}")
+
                      try:
     for url in links:
         try:
