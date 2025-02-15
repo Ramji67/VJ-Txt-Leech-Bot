@@ -218,59 +218,58 @@ async def upload(bot: Client, m: Message):
                     f'       **├── Extention : @Course_diploma_bot**\\n\\n'
                     f' **📚 Course :** {raw_text0}\\n\\n'
                     f'**🌟 Extracted By {MR}**')
-
-                      if "*" in url:
-                         a, k = url.split("*", 1)
-                          url = a
-                          key = k
-                          try:
-            if ".pdf" in url:
-                Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
-                prog = await m.reply_text(Show)
-                file_path = await helper.download_file(url, name)
-                copy = helper.decrypt_file(file_path, key)
-                filename = file_path
-                await prog.delete(True)
-                await bot.send_document(chat_id=m.chat.id, document=filename, caption=cc1)
-                count += 1
-            else:
-                Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
-                prog = await m.reply_text(Show)
-                file_path = await helper.download_file(url, name)
-                copy = helper.decrypt_file(file_path, key)
-                filename = file_path
-                await prog.delete(True)
-                await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
-                count += 1
-        except FloodWait as e:
-            await m.reply_text(str(e))
-            time.sleep(e.x)
-            continue
-
-        if "drive" in url or ".ws" in url or "cwmediabkt99.crwilladmin.com" in url:
-            try:
-                ka = await helper.download(url, name)
-                copy = await bot.send_document(chat_id=m.chat.id, document=ka, caption=cc1)
-                count += 1
-                os.remove(ka)
-                time.sleep(2)
-            except FloodWait as e:
-                await m.reply_text(str(e))
-                time.sleep(e.x)
-                continue
-        elif ".pdf" in url:
-            try:
-                cmd = f'yt-dlp -o "{name}🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️.pdf" "{url}"'
-                download_cmd = f"{cmd} -R 25 --fragment-retries 25"
-                os.system(download_cmd)
-                copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
-                count += 1
-                os.remove(f'{name}.pdf')
-            except FloodWait as e:
-                await m.reply_text(str(e))
-                time.sleep(e.x)
-                continue
-        else:
+                    if "*" in url:
+                     a, k = url.split("*", 1)
+                     url = a
+                     key = k
+                     try:
+                      	if ".pdf" in a:
+                      		Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
+                      		prog = await m.reply_text(Show)
+                      		file_path = await helper.download_file(url, name)
+                      		copy = helper.decrypt_file(file_path, key)
+                      		filename = file_path
+                      		await prog.delete(True)
+                      		await bot.send_document(chat_id=m.chat.id, document=filename, caption=cc1)
+                      		count += 1
+                      	else:
+                      		Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
+                      		prog = await m.reply_text(Show)
+                      		file_path = await helper.download_file(url, name)
+                      		copy = helper.decrypt_file(file_path, key)
+                      		filename = file_path
+                      		await prog.delete(True)
+                      		await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
+                      		count += 1
+                     except FloodWait as e:
+                      await m.reply_text(str(e))
+                      time.sleep(1)
+                      continue
+                
+                elif "drive" in url or ".ws" in url or "cwmediabkt99.crwilladmin.com" in url:
+                    try:
+                        ka = await helper.download(url, name)
+                        copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
+                        count+=1
+                        os.remove(ka)
+                        time.sleep(2)
+                    except FloodWait as e:
+                        await m.reply_text(str(e))
+                        time.sleep(e.x)
+                        continue
+                elif ".pdf" in url:
+                    try:
+                        cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
+                        download_cmd = f"{cmd} -R 25 --fragment-retries 25"
+                        os.system(download_cmd)
+                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
+                        count += 1
+                        os.remove(f'{name}.pdf')
+                    except FloodWait as e:
+                        await m.reply_text(str(e))
+                        time.sleep(e.x)
+                        continue
+                else:
             progress = (count / len(links)) * 100
             Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n"
                     f"**┠ 📊 Total Links = {len(links)}**\n"
