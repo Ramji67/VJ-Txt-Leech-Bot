@@ -104,7 +104,7 @@ async def upload(bot: Client, m: Message):
     
     
 
-    await editable.edit("Now Enter A Caption to add caption on your uploaded file")
+    await editable.edit("🌟 Extracted By :")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
@@ -114,7 +114,7 @@ async def upload(bot: Client, m: Message):
     else:
         MR = raw_text3
    
-    await editable.edit("Now send the Thumb url/nEg » https://graph.org/file/ce1723991756e48c35aa1.jpg \n Or if don't want thumbnail send = no")
+    await editable.edit("Now send the Thumb url/nEg »  \n Or if don't want thumbnail send = no")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -165,8 +165,8 @@ async def upload(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
             try:  
                 
-                cc = f'     **——— ✦ ** {str(count).zfill(3)}. **——— ✦ ** \n\n** 🎞️ Title :**{𝗻𝗮𝗺𝗲𝟭}{MR}\n**├── Extention : @Course_diploma_bot.mkv**\n**├── Resolution : {raw_text2}**\n\n**📚 Course** » **{raw_text0}**'
-                cc1 = f'**[📁] Pdf_ID:** {str(count).zfill(3)}. {𝗻𝗮𝗺𝗲𝟭}{MR}.pdf \n**𝔹ᴀᴛᴄʜ** » **{raw_text0}**'
+                cc = f'     **——— ✦ ** {str(count).zfill(3)}. **——— ✦ ** \n\n** 🎞️ Title :**{𝗻𝗮𝗺𝗲𝟭}{MR}\n**├── Extention : @Course_diploma_bot.mkv**\n**├── Resolution : {raw_text2}**\n\n**📚 Course** » **{raw_text0}**\n\n**🌟 Extracted By** **{raw_text3}**'
+                cc1 = f      '**——— ✦ ** {str(count).zfill(3)}.**——— ✦ **\n\n**📁 Title** {𝗻𝗮𝗺𝗲𝟭}{MR}\n**├── Extention : @Course_diploma_bot.pdf**\n**├── Resolution : {raw_text2}** \n\n**📚 Course** » **{raw_text0}**\n\n**🌟 Extracted By** **{raw_text3}**'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
