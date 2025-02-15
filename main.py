@@ -221,7 +221,7 @@ async def upload(bot: Client, m: Message):
                   
           
           
-            Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n"
+            Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 =  🚀... »**\n\n"
                     f"**┠ 📊 Total Links = {len(links)}**\n"
                     f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\n"
                     f"**┠ 🔥 Remaining Links = {len(links) - count}**\n"
