@@ -218,30 +218,9 @@ async def upload(bot: Client, m: Message):
                     f'       **├── Extention : @Course_diploma_bot**\\n\\n'
                     f' **📚 Course :** {raw_text0}\\n\\n'
                     f'**🌟 Extracted By {MR}**')
-                    if ".pdf" in a:
-                      		Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
-                      		prog = await m.reply_text(Show)
-                      		file_path = await helper.download_file(url, name)
-                      		copy = helper.decrypt_file(file_path, key)
-                      		filename = file_path
-                      		await prog.delete(True)
-                      		await bot.send_document(chat_id=m.chat.id, document=filename, caption=cc1)
-                      		count += 1
-                      	else:
-                      		Show = f"⥥ 🄳🄾🅆🄽🄻🄾🄰🄳🄸🄽🄶⬇️⬇️... »\n\n📝Name » {name}\n❄Quality » {raw_text2}\n\n🔗URL » {url}"
-                      		prog = await m.reply_text(Show)
-                      		file_path = await helper.download_file(url, name)
-                      		copy = helper.decrypt_file(file_path, key)
-                      		filename = file_path
-                      		await prog.delete(True)
-                      		await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
-                      		count += 1
-                     except FloodWait as e:
-                      await m.reply_text(str(e))
-                      time.sleep(1)
-                      continue
+                  
                 
-                elif "drive" in url or ".ws" in url or "cwmediabkt99.crwilladmin.com" in url:
+                if "drive" in url or ".ws" in url or "cwmediabkt99.crwilladmin.com" in url:
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
@@ -252,7 +231,7 @@ async def upload(bot: Client, m: Message):
                         await m.reply_text(str(e))
                         time.sleep(e.x)
                         continue
-                elif ".pdf" in url:
+                if ".pdf" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
