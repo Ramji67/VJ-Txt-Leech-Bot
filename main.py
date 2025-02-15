@@ -241,7 +241,7 @@ async def upload(bot: Client, m: Message):
             f"**┠ 📊 Total Links = {len(links)}**\\n"
             f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\\n"
             f"**┠ 🔥 Remaining Links = {len(links) - count}**\\n"
-            f"**┠ 📈 Progress = {progress:.2f}%**\\n\\n"
+            f"**┠ 📈 Progress = **\\n\\n"
             f"**├──🎞️ Title** `{name}`\\n"
             f"**├── Resolution** {raw_text2}\\n\\n"
             f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\\n\\n"
