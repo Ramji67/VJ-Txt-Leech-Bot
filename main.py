@@ -205,8 +205,7 @@ async def upload(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4" --add-header authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjAwODUzNDQuNTksImRhdGEiOnsiX2lkIjoiNjY2NmUxY2VmNmEzYjNlNGU3ODIyMTVkIiwidXNlcm5hbWUiOiI5MDI0NTU0NTc2IiwiZmlyc3ROYW1lIjoiUmFodWwiLCJsYXN0TmFtZSI6IiIsIm9yZ2FuaXphdGlvbiI6eyJfaWQiOiI1ZWIzOTNlZTk1ZmFiNzQ2OGE3OWQxODkiLCJ3ZWJzaXRlIjoicGh5c2ljc3dhbGxhaC5jb20iLCJuYW1lIjoiUGh5c2ljc3dhbGxhaCJ9LCJlbWFpbCI6InJhaHVsY2hvdWhhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3MTk0ODA1NDR9.NKpXT-e5Mzrrj1t05qLIGOGqyRbEXEGuUJ1q9xnIFNs"'
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
-
-        try:
+try:
     cc = (f'**——— ✦ ** {str(count).zfill(3)}  ** ——— ✦ **\\n\\n'
           f'**🎞️ Title :** {copied_name1}\\n'
           f'     **├── Extention : @Course_diploma_bot**\\n'
@@ -228,7 +227,7 @@ async def upload(bot: Client, m: Message):
 except Exception as e:
     print(f"An error occurred: {e}")
 
-                     try:
+try:
     for url in links:
         try:
             if ".pdf" in url:
@@ -279,15 +278,15 @@ except Exception as e:
                 continue
         else:
             progress = (count / len(links)) * 100
-            Show = f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n" \
-                   f"**┠ 📊 Total Links = {len(links)}**\n" \
-                   f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\n" \
-                   f"**┠ 🔥 Remaining Links = {len(links) - count}**\n" \
-                   f"**┠ 📈 Progress = {progress:.2f}%**\n\n" \
-                   f"**├──🎞️ Title** `{name}`\n" \
-                   f"**├── Resolution** {raw_text2}\n\n" \
-                   f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\n\n" \
-                   f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』"
+            Show = (f"**🚀 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 = {progress:.2f}% 🚀... »**\n\n"
+                    f"**┠ 📊 Total Links = {len(links)}**\n"
+                    f"**┠ ⚡️ Currently On = {str(count).zfill(3)}**\n"
+                    f"**┠ 🔥 Remaining Links = {len(links) - count}**\n"
+                    f"**┠ 📈 Progress = {progress:.2f}%**\n\n"
+                    f"**├──🎞️ Title** `{name}`\n"
+                    f"**├── Resolution** {raw_text2}\n\n"
+                    f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\n\n"
+                    f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
             prog = await m.reply_text(Show)
             res_file = await helper.download_video(url, cmd, name)
             filename = res_file
@@ -297,7 +296,7 @@ except Exception as e:
             time.sleep(1)
 
 except Exception as e:
-    await m.reply_text(f"**downloading Interupted **\n{str(e)}\n**Name** » {name}\n**Link** » `{url}`")
+    await m.reply_text(f"**downloading Interrupted **\n{str(e)}\n**Name** » {name}\n**Link** » `{url}`")
     continue
 
 await m.reply_text("**𝔻ᴏɴᴇ 𝔹ᴏ𝕤𝕤😎**")
