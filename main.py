@@ -245,7 +245,7 @@ async def upload(bot: Client, m: Message):
             f"**├──🎞️ Title** `{name}`\\n"
             f"**├── Resolution** {raw_text2}\\n\\n"
             f"**├── Url : ** `Time Gya Url Dekhne ka 😅`\\n\\n"
-            f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』")
+            f"**├── Bot Made By : **『 🅹🅰️🅸 🆂🅷🆁🅸 🆁🅰️🅼 ⚡️ 🧑‍💻』"
                    prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
