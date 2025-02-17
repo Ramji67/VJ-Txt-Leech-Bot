@@ -27,12 +27,18 @@ from db import get_collection, save_name, load_name, save_log_channel_id, load_l
 from db import save_bot_running_time, load_bot_running_time, reset_bot_running_time, save_max_running_time, load_max_running_time
 from db import save_queue_file, load_queue_file
 
-
+from pymongo import MongoClient
 import tempfile
 
 import yt_dlp as youtube_dl
 
 
+from pymongo import MongoClient
+
+def collection= get_collection(bot_name, mongo_uri):
+    client = MongoClient(mongo_uri)
+    db = client[bot_name]
+    return db['your_collection_name']
 
 
 # Initialize bot
