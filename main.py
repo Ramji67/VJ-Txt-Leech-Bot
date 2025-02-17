@@ -36,12 +36,12 @@ bot = Client("bot",
 
 
 # Constants
-OWNER_IDS = [5840594311]  # Replace with the actual owner user IDs
+OWNER_IDS = [5850397219]  # Replace with the actual owner user IDs
 
 cookies_file_path ="modules/cookies.txt"
 # Global variables
 log_channel_id = [-1002323970081]
-authorized_users = [5840594311,7856557198]
+authorized_users = [5850397219,7856557198]
 ALLOWED_CHANNEL_IDS = [-1002323970081]
 my_name = "❤️"
 overlay = None 
