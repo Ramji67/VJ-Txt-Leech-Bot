@@ -35,11 +35,6 @@ import yt_dlp as youtube_dl
 
 from pymongo import MongoClient
 
- collection= get_collection(bot_name, mongo_uri):
-    client = MongoClient(mongo_uri)
-    db = client[bot_name]
-    
-
 
 # Initialize bot
 bot = Client("bot",
@@ -48,7 +43,7 @@ bot = Client("bot",
              api_hash=API_HASH)
 
 # Get the MongoDB collection for this bot
-collection = {BOT_NAME, MONGO_URI}
+collection = get_collection(BOT_NAME, MONGO_URI)
 # Constants
 OWNER_IDS = [5850397219]  # Replace with the actual owner user IDs
 
