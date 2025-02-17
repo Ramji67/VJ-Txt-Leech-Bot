@@ -1,4 +1,4 @@
- Remove Credit Tg - @Tushar0125
+# Remove Credit Tg - @Tushar0125
 # Ask Doubt on telegram @Tushar0125
 
 import os
