@@ -35,10 +35,10 @@ import yt_dlp as youtube_dl
 
 from pymongo import MongoClient
 
-def collection= get_collection(bot_name, mongo_uri):
+ collection= get_collection(bot_name, mongo_uri):
     client = MongoClient(mongo_uri)
     db = client[bot_name]
-    return db['your_collection_name']
+    
 
 
 # Initialize bot
