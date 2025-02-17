@@ -38,7 +38,7 @@ bot = Client("bot",
              api_hash=API_HASH)
 
 # Get the MongoDB collection for this bot
-
+collection = {BOT_NAME, MONGO_URI}
 # Constants
 OWNER_IDS = [5850397219]  # Replace with the actual owner user IDs
 
